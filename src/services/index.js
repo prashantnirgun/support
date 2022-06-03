@@ -9,6 +9,12 @@ const usersProfiles = require('./users-profiles/users-profiles.service.js');
 const companiesUsers = require('./companies-users/companies-users.service.js');
 const uploads = require('./uploads/uploads.service.js');
 const otp = require('./otp/otp.service.js');
+const forgotPassword = require('./forgot-password/forgot-password.service.js');
+const commonQueries = require('./common-queries/common-queries.service.js');
+const units = require('./units/units.service.js');
+const categories = require('./categories/categories.service.js');
+const products = require('./products/products.service.js');
+const productsDetails = require('./products-details/products-details.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -22,4 +28,10 @@ module.exports = function (app) {
   app.configure(companiesUsers);
   app.configure(uploads);
   app.configure(otp);
+  app.configure(forgotPassword);
+  app.configure(commonQueries);
+  app.configure(units);
+  app.configure(categories);
+  app.configure(products);
+  app.configure(productsDetails);
 };

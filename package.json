@@ -53,6 +53,7 @@
     "knex": "^0.95.15",
     "moment": "^2.29.1",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.2",
     "objection": "^2.2.4",
     "serve-favicon": "^2.5.0",
     "winston": "^3.0.0"

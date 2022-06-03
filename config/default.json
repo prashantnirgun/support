@@ -20,6 +20,7 @@
       "algorithm": "HS256",
       "expiresIn": "1d"
     },
+    "superAdmin": "S$%per@dmin@tss",
     "local": {
       "usernameField": "email",
       "passwordField": "password"
@@ -27,6 +28,49 @@
   },
   "mysql": {
     "client": "mysql2",
-    "connection": "mysql://tssnetin_webroot:MwDpI0118$@162.241.69.248:3306/tssnetin_production"
+    "connection": {
+      "host": "162.241.69.248",
+      "port": 3306,
+      "database": "tssnetin_production",
+      "user": "tssnetin_webroot",
+      "password": "MwDpI0118$",
+      "timezone": "+05:30"
+    }
+  },
+  "razorpay": {
+    "key_id": "rzp_test_",
+    "key_secret": "XX"
+  },
+  "deployment": {
+    "ip": "http://localhost:8080"
+  },
+  "email": {
+    "smtp": "smtp.gmail.com",
+    "accounts": {
+      "no-reply": {
+        "display": "TSS Support",
+        "emailUser": "tssnetin@gmail.com",
+        "password": "MgPi0118$",
+        "host": "smtp.gmail.com",
+        "port": 465,
+        "from": "info@tss.net.in"
+      },
+      "contact": {
+        "display": "TSS Support",
+        "emailUser": "tssnetin@gmail.com",
+        "password": "MgPi0118$",
+        "host": "smtp.gmail.com",
+        "port": 465,
+        "from": "info@tss.net.in"
+      },
+      "admin": {
+        "display": "TSS Support",
+        "emailUser": "tssnetin@gmail.com",
+        "password": "MgPi0118$",
+        "host": "smtp.gmail.com",
+        "port": 465,
+        "from": "info@tss.net.in"
+      }
+    }
   }
 }

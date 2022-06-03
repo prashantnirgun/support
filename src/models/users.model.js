@@ -44,7 +44,7 @@ class Users extends Model {
   }
 
   static get relationMappings() {
-    const UsersGroups = require('./users-groups');
+    const UsersGroups = require('./users-groups.model');
 
     return {
       pets: {
@@ -52,7 +52,7 @@ class Users extends Model {
         modelClass: UsersGroups,
         join: {
           from: 'users.id',
-          to: 'users_group.id'
+          to: 'users_groups.id'
         }
       }
     };

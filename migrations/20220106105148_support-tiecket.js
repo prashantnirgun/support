@@ -44,7 +44,7 @@ exports.up = async function (knex) {
 };
 
 exports.down = async function (knex) {
-  await knex.schema.dropTable('tickets');
-  await knex.schema.dropTable('tickets_details');
   await knex.schema.dropTable('tickets_transfers');
+  await knex.schema.dropTable('tickets_details');
+  await knex.schema.dropTable('tickets');
 };

@@ -20,7 +20,7 @@ exports.up = async function (knex) {
       .notNullable();
     table.enum('email_verified', ['Yes', 'No']).notNullable();
     table.string('password_reset_token', 100);
-    table.timestamp('password_reset_expiry');
+    table.datetime('password_reset_expiry');
     table.string('referral_code', 45);
     table.integer('referred_by');
     table.timestamp('createdAt', { precision: 6 }).defaultTo(knex.fn.now(6));

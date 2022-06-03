@@ -16,12 +16,27 @@ class Companies extends Model {
         id: { type: 'integer' },
         company_name: { type: 'string' },
         domain: { type: 'string' },
-        gst_no: { type: 'string' },
+        gst_no: { type: ['string', 'null'] },
         state_id: { type: 'integer' },
         is_inventory: {
           type: ['string', 'integer']
         },
         extraAttr: { type: 'any' }
+      }
+    };
+  }
+
+  static get relationMappings() {
+    const States = require('./states.model');
+
+    return {
+      states: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: States,
+        join: {
+          from: 'companies.state_id',
+          to: 'states.id'
+        }
       }
     };
   }

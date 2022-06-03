@@ -2,20 +2,22 @@
 // for more of what you can do here.
 const { Model } = require('objection');
 
-class UsersGroups extends Model {
+class Units extends Model {
   static get tableName() {
-    return 'users_groups';
+    return 'units';
   }
 
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['user_group_name'],
+      required: ['company_id', 'unit_name', 'decimal_places', 'unit_base'],
 
       properties: {
         id: { type: 'integer' },
-        user_group_name: { type: 'string' },
-        status: {
+        company_id: { type: 'integer' },
+        unit_name: { type: 'string' },
+        decimal_places: { type: 'decimal' },
+        unit_base: {
           type: ['string', 'integer']
         }
       }
@@ -23,15 +25,15 @@ class UsersGroups extends Model {
   }
 
   static get relationMappings() {
-    const Users = require('./users.model');
+    const Products = require('./products.model');
 
     return {
       pets: {
         relation: Model.HasManyRelation,
-        modelClass: Users,
+        modelClass: Products,
         join: {
-          from: 'users_groups.id',
-          to: 'users.users_group_id'
+          from: 'units.id',
+          to: 'products.unit_id'
         }
       }
     };
@@ -47,5 +49,5 @@ class UsersGroups extends Model {
 }
 
 module.exports = function (app) {
-  return UsersGroups;
+  return Units;
 };

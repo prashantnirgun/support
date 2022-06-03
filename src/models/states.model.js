@@ -21,6 +21,20 @@ class States extends Model {
     };
   }
 
+  static get relationMappings() {
+    const Companies = require('./companies.model');
+
+    return {
+      companies: {
+        relation: Model.HasManyRelation,
+        modelClass: Companies,
+        join: {
+          from: 'states.id',
+          to: 'companies.states_id'
+        }
+      }
+    };
+  }
   $beforeInsert() {
     this.createdAt = this.updatedAt = new Date().toISOString();
   }
